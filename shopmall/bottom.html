@@ -1,0 +1,69 @@
+<? //화면 아래에 위치하는 html ?>
+<?
+$con = mysql_connect("localhost","root","apmsetup");
+mysql_select_db("shopmall",$con);
+$result = mysql_query("select * from customer order by id desc", $con);
+$total = mysql_num_rows($result);
+?>
+<style>
+	#t1 {border-left:none; border-right:none;}
+	#t2 {border-left:1px;}
+</style>
+<table width =100% height=30 bgcolor=#2C2C2C> 
+<tr></td></td></tr>
+</table>
+<table width =100% height=50 bgcolor=#2C2C2C border=0> 
+	<tr>
+		<td width=15%></td>
+		<td width=18%><font color=white><b>공지사항</td>
+		<td rowspan=2 width=100 align=center><hr color=white width="1" size="100"></td>
+		<td width=20%><font color=white><b>콜 센터</td>
+		<td rowspan=2 width=100 align=center><hr color=white width="1" size="100"></td>
+		<td><font color=white><b>계좌 정보</td>
+		<td width=15%></td> 
+	</tr>
+	<tr>
+		<td width=15%></td>
+		<td>
+		<table>
+		<?
+			$count = 0; 
+			
+			while($count<4 & $count<$total):
+			$topic =mysql_result($result,$count,"topic");
+			$id = mysql_result($result,$count,"id");
+			echo("<tr><td><font color=white size=2>·</font><a href='p-content.php?id=$id'>
+				<font color=white size=2> $topic</font> </a><br></td>");
+
+			
+		?>
+		</td>
+		<td>
+		<?
+
+			
+			$wdate =mysql_result($result,$count,"wdate");
+			echo("<td><font color=white size=2>$wdate</font><br></td></tr>");
+			$count++;
+			endwhile;
+		?>
+		</table>
+		
+	
+		</td>
+		<td>
+			<font color=white size=5dp>010-5509-0020</font><br>
+			<font color=white>평일 10:00~18:00 | 점심 13:00~14:00</font><br>
+			<font color=white>토,일,공휴일 휴무</font><br>
+			<font color=white>카카오톡 1:1 상담/주문<br>(카카오톡 아이디:ehddnr987)</font><br>
+		</td>
+		<td>
+			<font color=white size=5dp>경남 은행(김동욱)<br>544-22-0643411</font>
+		</td>
+		<td width=15%></td> 
+	</tr>
+</table>
+
+<table width =100% height=30 bgcolor=#2C2C2C> 
+<tr></td></td></tr>
+</table>

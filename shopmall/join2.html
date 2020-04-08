@@ -1,0 +1,93 @@
+<!--회원가입 페이지(회원 정보 입력)-->
+<? 
+	include("top.html");
+?>
+<style>
+	#t1 {border-left:none; border-right:none;}
+	#t2 {border-left:1px;}
+</style>
+
+<script   language='Javascript'>
+function   id_check() {
+var id = document.comma.uid.value;
+if (id.length < 5) {
+	window.alert('ID는 5글자 이상 입력해주세요');
+} else {
+	window.open('id_check.php?id=' + id, 'IDCHECK', 'width=450, height=180, scrollbars=yes');
+}
+}
+
+function   go_zip() {
+window.open('zipcode.php','ZIP','width=470, height=180, scrollbars=yes');
+}
+</script>
+<table height=50><tr><td></td></tr></table>
+
+<!--form에 입력한 정보를 join3.php로 보냄-->
+
+<form action=join3.php method=post name=comma>
+
+<table width=670 border=0 cellpadding=0 cellspacing=5 align=center>
+	<tr>
+		<td height=40 align=center><img src="./photo/join2.png" width=700></td>
+	</tr>
+</table>
+
+
+<table width=670 align=center border=1 id=t1 cellspacing=0>
+	<tr>
+		<td width=5% align=right id=t1 bgcolor=#EAEAEA>*</td>
+		<td width=15%   height=30 id=t1 bgcolor=#EAEAEA><font size=2>회원 ID</td>
+		<td width=10 id=t1></td>
+		<td width=80% id=t1><input type=text size=10 name=uid><font size=2>[<a   href='javascript:id_check()'>ID중복검사</a>]</font></td>
+	</tr>
+	<tr>
+		<td   align=right id=t1 bgcolor=#EAEAEA>*</td>
+		<td height=30 id=t1 bgcolor=#EAEAEA><font size=2>비밀번호</font></td>
+		<td width=10 id=t1></td>
+		<td id=t1><input type=password   maxlength=15 style="height:20;" size=20 name=upass1></td>
+	</tr>
+	<tr>
+		<td align=right id=t1 bgcolor=#EAEAEA>*</td>
+		<td height=30 id=t1 bgcolor=#EAEAEA><font size=2>비밀번호확인</font></td>
+		<td width=10 id=t1></td>
+		<td id=t1><input type=password   maxlength=15 style="height:20;" size=20 name=upass2></td>
+	</tr>
+	<tr>
+		<td align=right id=t1 bgcolor=#EAEAEA>*</td>
+		<td height=30 id=t1 bgcolor=#EAEAEA><font size=2>이 름</font></td>
+		<td width=10 id=t1></td>
+		<td id=t1><input type=text size=10 name=uname></td>
+	</tr>
+	<tr>
+		<td align=right id=t1 bgcolor=#EAEAEA>*</td>
+		<td height=30 id=t1 bgcolor=#EAEAEA><font size=2>휴대전화</font></td>
+		<td width=10 id=t1></td>
+		<td id=t1><input type=text size=20 name=mphone></td>
+	</tr>
+	<tr>
+		<td align=right id=t1 bgcolor=#EAEAEA>*</td>
+		<td height=30 id=t1 bgcolor=#EAEAEA><font size=2>이메일</td>
+		<td width=10 id=t1></td>
+		<td id=t1><input type=text size=30 name=email></td>
+	</tr>
+	<tr>
+		<td align=right id=t1 bgcolor=#EAEAEA>*</td>
+		<td height=30 id=t1 bgcolor=#EAEAEA><font size=2>집주소</td>
+		<td width=10 id=t1></td>
+		<td id=t1><input type=text size=7   name=zip readonly=readonly><font size=2>[<a   href='javascript:go_zip()'>우편번호검색</a>]</font><br><input type=text size=50 name=addr1 readonly=readonly><br><input   type=text size=35 name=addr2></td>
+	</tr>
+</table>
+
+<table width=670 align=center id=t1 cellspacing=0 height=50>
+	<tr>
+		<td align=right><input type=image src="./photo/join2_1.png" width=100></td>
+		<td><a href=main.html><img src="./photo/join2_2.png" width=100></a></td>
+	</tr>
+</table>
+<table width=670 border=0 cellpadding=0 cellspacing=5>
+
+
+</form>
+<table height=50><tr><td></td></tr></table>
+<? include("bottom.html");?>
